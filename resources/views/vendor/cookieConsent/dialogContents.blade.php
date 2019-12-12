@@ -7,7 +7,7 @@
     <div class="bot-coo row mt-3 pt-4 pb-4">
 
         <div class="stred col-sm-4">
-		<a class="link text-white" href="{{ url('/cookies')}}">Viac informácií</a>
+		<a class="link text-white" href="{{ url('/cookies')}}">{{ trans('cookieConsent::texts.info') }}</a>
         </div>
         <div class="stred col-sm-8 text-right">
                     <button class="butt float-right js-cookie-consent-agree cookie-consent__agree">

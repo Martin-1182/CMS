@@ -2,7 +2,7 @@
  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
                 <a class="navbar-brand overflow-hidden pr-3" href="{{ url('/') }}">
-                    <img src="{{ asset('img/sumar.svg') }}" alt="TRIMS" height="50" />
+                    <img src="{{ asset('/img/sumar.svg') }}" alt="MY  🔐WEB" width="50" />
                 </a>
             <!--<a class="navbar-brand" href="">
                 {{ config('app.name', 'Laravel') }}-->
@@ -18,16 +18,16 @@
 
                     <!-- Page Navbar Bro -->
                     <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('ÚVOD') }}</a>
+                            <a class="nav-link" href="{{ url('/') }}">{{ __('HOME') }}</a>
 					</li>
 					<li class="nav-item">
-                            <a class="nav-link" href="{{ url('/contact') }}">{{ __('KONTAKT') }}</a>
+                            <a class="nav-link" href="{{ url('/contact') }}">{{ __('CONTACT') }}</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="{{ route('posts.index') }}">{{ __('BLOG') }}</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="{{ route('albums.index') }}">{{ __('GALÉRIA') }}</a>
+                            <a class="nav-link" href="{{ route('albums.index') }}">{{ __('GALLERY') }}</a>
                     </li>
 
 
@@ -56,7 +56,11 @@
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
-                                </a>
+								</a>
+								   @if (Auth::check() && Auth::user()->isAdmin())
+								   <a class="dropdown-item" href="{{ url('/admin')}}">{{ __('Admin') }}</a>
+								   @endif
+
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

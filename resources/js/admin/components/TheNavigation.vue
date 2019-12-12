@@ -1,6 +1,8 @@
 <template>
     <div>
-        <a class="navbar-brand" href="/"> <img src="/img/sumar.svg" /> </a>
+        <a class="navbar-brand" href="/">
+            <img src="/img/sumar.svg" height="120" />
+        </a>
         <nav>
             <h5 class="heading">ADMIN</h5>
             <li class="nav-item">
