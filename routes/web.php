@@ -20,9 +20,12 @@ Route::resource('/admin/users', 'Admin\UserController', ['exept' => ['show', 'cr
 
 // routes
 Route::get('/', 'PagesController@home');
-Route::get('/posts', 'PostController@index');
+Route::get('/cookies', 'PagesController@cookies');
+Route::get('/contact', 'PagesController@contact');
+
 
 // posts
+Route::get('/posts', 'PostController@index');
 Route::resource('posts', 'PostController');
 
 // comments
@@ -39,8 +42,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('/admin{any?}', function () {
         return view('layouts.admin');
-        })->where('any', '.*'); 
+        })->where('any', '.*');
 
 });
-
-

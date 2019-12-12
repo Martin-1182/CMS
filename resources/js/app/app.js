@@ -5,9 +5,11 @@
  */
 
 require('../bootstrap');
-require('./main.js')
+require('./main.js');
 require('../../../node_modules/lightbox2/dist/js/lightbox');
+
 window.Vue = require('vue');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -30,8 +32,6 @@ Vue.component('comment', require('./components/Comment.vue').default);
  */
 
 const app = new Vue({
-    
-
     el: '#app',
 
     mounted() {
@@ -39,11 +39,11 @@ const app = new Vue({
         if (location.hash) {
             setTimeout( () => {
               let el = location.hash.replace('scroll-to-', '')
-              document.querySelector(el) .scrollIntoView({ behavior: 'smooth' })  
+              document.querySelector(el) .scrollIntoView({ behavior: 'smooth' })
             }, 350)
-              
+
         }
-        
+
     }
-    
+
 });

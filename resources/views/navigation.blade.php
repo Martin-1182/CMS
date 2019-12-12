@@ -19,15 +19,17 @@
                     <!-- Page Navbar Bro -->
                     <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('ÚVOD') }}</a>
+					</li>
+					<li class="nav-item">
+                            <a class="nav-link" href="{{ url('/contact') }}">{{ __('KONTAKT') }}</a>
                     </li>
-
                     <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts.index') }}">{{ __('BLOG') }}</a>                            
+                            <a class="nav-link" href="{{ route('posts.index') }}">{{ __('BLOG') }}</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="{{ route('albums.index') }}">{{ __('GALÉRIA') }}</a>
                     </li>
-                    
+
 
                 </ul>
 

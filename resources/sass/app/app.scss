@@ -12,8 +12,11 @@ body {
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Aos
+@import '~aos/src/sass/aos';
+
 // lightbox
-@import '~lightbox2/dist/css/lightbox'; 
+@import '~lightbox2/dist/css/lightbox';
 
 .no-gutters > .col,
 .no-gutters > [class*=col-] {
@@ -108,7 +111,7 @@ strong{ font-weight: 900; }
 		font-weight: 800;
 		background-color: white;
 		font-size: modular-scale(4);
-		
+
 	}
 	.last-span:after{
 		content: "";
@@ -125,7 +128,7 @@ strong{ font-weight: 900; }
 .card-service{
 	img{
 		width: 40px;
-		
+
 	}
 }
 
@@ -259,7 +262,7 @@ background: #050505;
 	display: block;
 	clear: both;
   }
-  
+
   /* ---- .grid-item ---- */
   .grid {
     margin-top: 2em;
@@ -268,11 +271,11 @@ background: #050505;
   .grid-item {
 	width: 25%;
   }
-  
+
   .grid-item {
 	float: left;
   }
-  
+
   .grid-item img {
 	display: block;
 	max-width: 100%;
@@ -286,35 +289,60 @@ background: #050505;
   }
   .cookie {
 	  position: fixed!important;
+	  width: 28%;
+	  border-radius: 1em;
+	  display: inline-block;
 	  bottom: 20px;
 	  left: 20px;
 	  background: whitesmoke;
 	  z-index: 10000000;
+	  @media screen and (max-width: 1248px) {
+		  width: 40%;
+	  }
+	  @media screen and (max-width: 888px) {
+		  width: 65%;
+	  }
+
+	  @media screen and (max-width: 567px) {
+		  width: 90%;
+	  }
+
   }
   .bot-coo {
 	  background: black;
 	  height: 100%;
+	  vertical-align: middle;
+	  border-bottom-left-radius: 1em;
+	  border-bottom-right-radius: 1em;
+
   }
   .butt {
 	    display: inline-block;
 		margin-bottom: 0;
 		font-weight: normal;
 		text-align: center;
-		vertical-align: middle;  
+		vertical-align: middle;
+		white-space: nowrap;
 		background: rgb(71, 145, 71);
         border: 1px solid rgba(255, 255, 255, 0.5);
-		padding: 10px;
+		padding: 8px;
 		color: white;
 		border-radius: 3px;
+
   }
   .butt:hover {
 	  background: green;
-	  
+
   }
   .link {
-	vertical-align: middle;  
+	vertical-align: middle;
 	padding: 10px;
 	display: inline-block;
 	margin-bottom: 0;
 	font-weight: normal;
+	white-space: nowrap;
+
+  }
+  .stred {
+	  width: fit-content;
   }

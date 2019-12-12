@@ -8,7 +8,7 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<!-- SEO -->
-    <meta name="author" content="Martin Halaj" href="{{ url('')}}">
+    <meta name="author" content="Martin Halaj" href="{{ url('/')}}">
 	<meta name="robots" content="index,follow">
 	<meta name="keywords" content=""> <!-- Your keywords -->
 	<meta name="description" content=""> <!-- Your description -->
