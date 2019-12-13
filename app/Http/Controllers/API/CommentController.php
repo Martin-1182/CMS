@@ -48,9 +48,17 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, $id)
     {
-        //
+          	$comment = Comment::find($id);
+			$this->validate($request,[
+				'text' => 'required',
+			]);
+		$comment->update($request->all());
+                 return response()->json([
+                    'message' => 'comment updated',
+                    'comment' => $comment,
+                ], 200);
     }
 
     /**

@@ -20,7 +20,7 @@
             <div class="">
                 <router-link
                     :to="`/admin/${resource}s/new`"
-                    class=" form-control btn btn-outline-success float-right"
+                    :class="`${css} form-control btn btn-outline-success float-right`"
                     >Add new {{ resource }}</router-link
                 >
             </div>
@@ -31,6 +31,9 @@
 <script>
 export default {
     props: {
+		css: {
+			type:String
+		},
         count: {
             type: Number,
             default: 0
@@ -43,7 +46,12 @@ export default {
         return {
             searchQuery: ""
         };
-    },
+	},
+	computed: {
+		class() {
+			return this.class
+		}
+	},
     watch: {
         searchQuery(value) {
             this.$emit("searchQueryChanged", value);
@@ -55,5 +63,8 @@ export default {
 <style lang="scss" scoped>
 .btn {
     cursor: pointer;
+}
+.displayNone {
+	display: none;
 }
 </style>

@@ -2,7 +2,7 @@
     <div class="mt-4">
         <router-link
             :to="`/admin/${resource}s/new`"
-            class="btn btn-outline-success mr-2"
+            :class="`${css} btn btn-outline-success mr-2`"
             ><i class="fa fa-plus-square"></i> Create new
             {{ resource }}</router-link
         >
@@ -20,7 +20,16 @@
 
 <script>
 export default {
-    props: ["resource", "id"],
+	props: ["resource", "id", "css"],
+	data() {
+		return {
+		}
+	},
+    computed: {
+		class() {
+			return this.class
+		}
+	},
     methods: {
         deleteResource() {
             if (
@@ -37,4 +46,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.displayNone {
+	display: none;
+}
+</style>

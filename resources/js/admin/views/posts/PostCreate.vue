@@ -26,7 +26,7 @@ export default {
                 })
                 .catch(errors => {
                     this.errors = errors.response.data.errors;
-                    this.$toastr.e("Ups somthing is wrong bro :)");
+                    this.$toastr.e(errors.message);
                 });
         }
     }

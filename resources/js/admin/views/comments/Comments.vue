@@ -2,6 +2,7 @@
     <section>
         <h1 class="title">Comments</h1>
         <table-search
+		     css="displayNone"
             :count="filteredItems.length"
             resource="comment"
             @searchQueryChanged="search = $event"
