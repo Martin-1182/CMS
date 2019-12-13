@@ -9,7 +9,13 @@
                     name="title"
                     class="form-control"
                     id="title"
+					:class="{ 'is-invalid': errors.title }"
                 />
+				<div v-if="errors.title" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.title" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
                 <small id="emailHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
@@ -23,7 +29,13 @@
                     id="text"
                     cols="30"
                     rows="10"
+					:class="{ 'is-invalid': errors.text }"
                 ></textarea>
+				<div v-if="errors.text" class="invalid-feedback">
+                    <div v-for="(error, index) in errors.text" :key="index">
+                        {{ error }}
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <input

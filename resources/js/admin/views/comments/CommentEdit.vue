@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1" class="badge badge-warning"
-                >Update your comment</label
+                >Update this comment</label
             >
             <textarea
                 v-model="text"
@@ -17,8 +17,14 @@
                 class="form-control"
                 id="exampleFormControlTextarea1"
                 rows="3"
+                :class="{ 'is-invalid': errors.text }"
                 placeholder="Please type your comment here"
             ></textarea>
+            <div v-if="errors.text" class="invalid-feedback">
+                <div v-for="(error, index) in errors.text" :key="index">
+                    {{ error }}
+                </div>
+            </div>
         </div>
         <button @click="submitForm" class="btn btn-primary btn-sm mb-4">
             update comment
@@ -34,6 +40,7 @@ import tableMixin from "../../mixins/tableMixin";
 export default {
     data() {
         return {
+            errors: {},
             text: "",
             comment: {
                 user: {},
@@ -73,11 +80,13 @@ export default {
             if (
                 window.confirm("Naozaj zmazať? Táto akcia je neodvolateľná!! ")
             ) {
+				let id = this.$route.params.id;
                 axios
-                    .delete(`/api/${this.comments}/${this.id}`)
-                    .then(response =>
-                        this.$router.push(`/admin/${this.resources}`)
-                    );
+                    .delete(`/api/comments/${id}`)
+                    .then(response => {
+                        this.$router.push(`/admin/comments`);
+                        this.$toastr.s("Comment deleted");
+                    });
             }
         }
     }

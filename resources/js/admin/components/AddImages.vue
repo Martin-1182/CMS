@@ -146,7 +146,7 @@ export default {
 <style lang="scss" scoped>
 .uploader {
     width: 100%;
-    background: #2196f3;
+    background: #292929;
     color: #fff;
     padding: 40px 15px;
     text-align: center;
@@ -156,10 +156,10 @@ export default {
     position: relative;
     &.dragging {
         background: #fff;
-        color: #2196f3;
-        border: 3px dashed #2196f3;
+        color: #292929;
+        border: 3px dashed #292929;
         .file-input label {
-            background: #2196f3;
+            background: #292929;
             color: #fff;
         }
     }
@@ -174,7 +174,7 @@ export default {
         label,
         input {
             background: #fff;
-            color: #2196f3;
+            color: #292929;
             width: 100%;
             position: absolute;
             left: 0;
@@ -234,8 +234,8 @@ export default {
         text-align: right;
         button,
         label {
-            background: #2196f3;
-            border: 2px solid #03a9f4;
+            background: #292929;
+            border: 2px solid #292929;
             border-radius: 3px;
             color: #fff;
             font-size: 15px;
@@ -250,14 +250,20 @@ export default {
 .upc {
     padding: 1.3px;
     margin-left: 8px;
-    background: #2196f3;
-    border: 2px solid #03a9f4;
+    background: #292929;
+    border: 2px solid #292929;
     border-radius: 3px;
     color: #fff;
     font-size: 15px;
     cursor: pointer;
 }
 select option[data-default] {
-    color: #888;
+    background: #292929!important;
+}
+select option {
+	background: #292929!important;
+}
+select option[data-default] {
+    background: #292929!important;
 }
 </style>

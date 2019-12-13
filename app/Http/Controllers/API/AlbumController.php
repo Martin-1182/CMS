@@ -27,8 +27,8 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'title' => 'required|string|max:191',
-            'image' => 'required',
+            'title' => 'required|string|max:80',
+			'image' => 'required|max:5000',
             'text' => 'required',
         ]);
 
@@ -36,9 +36,9 @@ class AlbumController extends Controller
 
             $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
             \Image::make($request->image)->resize(300, 200)->save(public_path('img/album-img/').$name);
-            $request->merge(['image' => $name]);        
+            $request->merge(['image' => $name]);
         }
-            $album = Album::create($request->all());              
+            $album = Album::create($request->all());
                 return response()->json([
                     'message' => 'album created',
                     'album' => $album,
@@ -74,17 +74,17 @@ class AlbumController extends Controller
         if($request->image != $currentImage) {
             $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
             \Image::make($request->image)->resize(300, 200)->save(public_path('img/album-img/').$name);
-            $request->merge(['image' => $name]);   
+            $request->merge(['image' => $name]);
 
             $albumImage = public_path('img/album-img/').$currentImage;
 
             if(file_exists($albumImage)){
 
                 @unlink($albumImage);
-                
+
             }
         }
-        $album->update($request->all());    
+        $album->update($request->all());
                  return response()->json([
                     'message' => 'album updated',
                     'album' => $album,

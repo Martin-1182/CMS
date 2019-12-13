@@ -37,8 +37,13 @@ export default {
             ) {
                 axios
                     .delete(`/api/${this.resource}s/${this.id}`)
-                    .then(response =>
-                        this.$router.push(`/admin/${this.resource}s`)
+                    .then(response => {
+
+						this.$router.push(`/admin/${this.resource}s`)
+						this.$toastr.s(`${this.resource} successfully deleted`)
+					}
+
+
                     );
             }
         }
