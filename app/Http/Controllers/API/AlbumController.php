@@ -26,11 +26,22 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+		$this->validate($request,
+		[
             'title' => 'required|string|max:80',
-			'image' => 'required|max:5000',
-            'text' => 'required',
-        ]);
+			'image' => 'required|max:10240',
+            'text' => 'required|string|max:200',
+		],
+		[
+			'title.max' => 'Onli 80 characters allowed',
+			'title.required' => 'Title is Required',
+			'text.max' => 'Onli 200 characters allowed',
+			'text.required' => 'Text is required',
+			'image.required' => 'Images is required',
+			'image.max' => 'Max 10MB filesize is allowed ',
+
+		]
+       );
 
         if($request->image){
 

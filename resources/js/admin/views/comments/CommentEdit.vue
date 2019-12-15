@@ -50,9 +50,14 @@ export default {
     },
     mixins: [tableMixin],
     created() {
-        axios.get("/api/comments/" + this.$route.params.id).then(response => {
-            this.comment = response.data;
-        });
+        axios
+            .get("/api/comments/" + this.$route.params.id)
+            .then(response => {
+                this.comment = response.data;
+            })
+            .catch(error => {
+                return this.$router.push("/admin/404");
+            });
     },
     watch: {
         comment(comment) {
@@ -72,6 +77,7 @@ export default {
                     this.$router.push(`/admin/comments/${id}`);
                 })
                 .catch(errors => {
+                    
                     this.errors = errors.response.data.errors;
                     this.$toastr.e(errors.message);
                 });
@@ -80,13 +86,11 @@ export default {
             if (
                 window.confirm("Naozaj zmazať? Táto akcia je neodvolateľná!! ")
             ) {
-				let id = this.$route.params.id;
-                axios
-                    .delete(`/api/comments/${id}`)
-                    .then(response => {
-                        this.$router.push(`/admin/comments`);
-                        this.$toastr.s("Comment deleted");
-                    });
+                let id = this.$route.params.id;
+                axios.delete(`/api/comments/${id}`).then(response => {
+                    this.$router.push(`/admin/comments`);
+                    this.$toastr.s("Comment deleted");
+                });
             }
         }
     }
