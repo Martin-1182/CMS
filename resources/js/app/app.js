@@ -4,12 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('../bootstrap');
-require('./main.js');
-require('../../../node_modules/lightbox2/dist/js/lightbox');
+require("../bootstrap");
+require("./main.js");
+require("../../../node_modules/lightbox2/dist/js/lightbox");
 
-window.Vue = require('vue');
-
+window.Vue = require("vue");
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,8 +21,11 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('flash-message', require('./components/FlashMessage.vue').default);
-Vue.component('comment', require('./components/Comment.vue').default);
+Vue.component(
+    "flash-message",
+    require("./components/FlashMessage.vue").default
+);
+Vue.component("comment", require("./components/Comment.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,18 +34,16 @@ Vue.component('comment', require('./components/Comment.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
 
     mounted() {
-
         if (location.hash) {
-            setTimeout( () => {
-              let el = location.hash.replace('scroll-to-', '')
-              document.querySelector(el) .scrollIntoView({ behavior: 'smooth' })
-            }, 350)
-
+            setTimeout(() => {
+                let el = location.hash.replace("scroll-to-", "");
+                document
+                    .querySelector(el)
+                    .scrollIntoView({ behavior: "smooth" });
+            }, 350);
         }
-
     }
-
 });

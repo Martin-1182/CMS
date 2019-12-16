@@ -1,29 +1,37 @@
 <template>
     <div>
+        <router-link :to="`/admin/${resource}s/${id}`"
+            ><i class="fa fa-eye text-info "> </i
+        ></router-link>
 
-        <router-link :to="`/admin/${ resource }s/${ id }`"><i class="fa fa-eye text-info "> </i></router-link>
-                            
-        <router-link :to="`/admin/${ resource }s/${ id }/edit`"><i class="fa fa-edit text-success "></i></router-link>
-                            
-        <a @click="deleteResource"><i class="fas fa-trash-alt text-danger "></i></a>
+        <router-link :to="`/admin/${resource}s/${id}/edit`"
+            ><i class="fa fa-edit text-success "></i
+        ></router-link>
 
+        <a @click="deleteResource"
+            ><i class="fas fa-trash-alt text-danger "></i
+        ></a>
     </div>
-
 </template>
 
 <script>
-    export default {
-        props: ['resource', 'id'],
-                methods: {
-          deleteResource() {
-            if (window.confirm("Naozaj zmazať? Táto akcia je neodvolateľná!! ")) {
-              axios.delete(`/api/${this.resource}s/${this.id}`).then(response => this.$router.go())
+export default {
+    props: ["resource", "id"],
+    methods: {
+        deleteResource() {
+            if (
+                window.confirm("Naozaj zmazať? Táto akcia je neodvolateľná!! ")
+            ) {
+                axios
+                    .delete(`/api/${this.resource}s/${this.id}`)
+                    .then(response => {
+                        this.$toastr.s(`${this.resource} deleted`);
+                        this.$router.go();
+                    });
             }
-            
-          }
-        },
-        
+        }
     }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -37,6 +45,5 @@ a {
 }
 a:hover {
     border: none;
-    
 }
 </style>

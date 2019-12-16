@@ -1849,15 +1849,13 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['comment-data'],
+  props: ["comment-data"],
   data: function data() {
     return {
       editing: false,
-      newText: '',
-      oldText: ''
+      newText: "",
+      oldText: ""
     };
   },
   mounted: function mounted() {
@@ -1877,16 +1875,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateComment: function updateComment() {
       this.editing = false;
-      axios.patch('/comments/' + this.commentData.id, {
+      axios.patch("/comments/" + this.commentData.id, {
         text: this.newText
       });
-      this.$root.$emit('flash', 'comment updated');
+      this.$root.$emit("flash", "comment updated");
       this.oldText = this.newText;
     },
     deleteComment: function deleteComment() {
-      if (window.confirm('Are you sure you want to delete this comment?')) {
-        axios["delete"]('/comments/' + this.commentData.id);
-        this.$root.$emit('flash', 'comment deleted');
+      if (window.confirm("Are you sure you want to delete this comment?")) {
+        axios["delete"]("/comments/" + this.commentData.id);
+        this.$root.$emit("flash", "comment deleted");
         this.$el.remove();
       }
     },
@@ -1926,12 +1924,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["text"],
   data: function data() {
     return {
       visible: false,
-      message: ''
+      message: ""
     };
   },
   created: function created() {
@@ -1942,7 +1944,7 @@ __webpack_require__.r(__webpack_exports__);
       this.show();
     }
 
-    this.$root.$on('flash', function (message) {
+    this.$root.$on("flash", function (message) {
       _this.message = message;
 
       _this.show();
@@ -42417,7 +42419,7 @@ var render = function() {
         staticClass: "notification shadow alert alert-info",
         attrs: { role: "alert" }
       },
-      [_vm._v(_vm._s(_vm.message))]
+      [_vm._v("\n        " + _vm._s(_vm.message) + "\n    ")]
     )
   ])
 }
@@ -54593,8 +54595,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('flash-message', __webpack_require__(/*! ./components/FlashMessage.vue */ "./resources/js/app/components/FlashMessage.vue")["default"]);
-Vue.component('comment', __webpack_require__(/*! ./components/Comment.vue */ "./resources/js/app/components/Comment.vue")["default"]);
+Vue.component("flash-message", __webpack_require__(/*! ./components/FlashMessage.vue */ "./resources/js/app/components/FlashMessage.vue")["default"]);
+Vue.component("comment", __webpack_require__(/*! ./components/Comment.vue */ "./resources/js/app/components/Comment.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -54602,13 +54604,13 @@ Vue.component('comment', __webpack_require__(/*! ./components/Comment.vue */ "./
  */
 
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   mounted: function mounted() {
     if (location.hash) {
       setTimeout(function () {
-        var el = location.hash.replace('scroll-to-', '');
+        var el = location.hash.replace("scroll-to-", "");
         document.querySelector(el).scrollIntoView({
-          behavior: 'smooth'
+          behavior: "smooth"
         });
       }, 350);
     }
@@ -54812,7 +54814,7 @@ var is_newer_ie = ua.match(/msie (9|([1-9][0-9]))/i);
 var is_older_ie = ua.match(/msie/i) && !is_newer_ie;
 var is_ancient_ie = ua.match(/msie 6/i);
 var is_ie = is_ancient_ie || is_older_ie || is_newer_ie;
-var is_mobile_ie = navigator.userAgent.indexOf('IEMobile') !== -1;
+var is_mobile_ie = navigator.userAgent.indexOf("IEMobile") !== -1;
 var is_mobile = ua.match(/mobile/i);
 var is_OSX = ua.match(/(iPad|iPhone|iPod|Macintosh)/g) ? true : false;
 var iOS = getIOSVersion(ua);
@@ -54821,19 +54823,19 @@ var puppeteer = ua.match(/puppeteer/i);
 
 function getIOSVersion(ua) {
   ua = ua || navigator.userAgent;
-  return parseFloat(('' + (/CPU.*OS ([0-9_]{1,5})|(CPU like).*AppleWebKit.*Mobile/i.exec(ua) || [0, ''])[1]).replace('undefined', '3_2').replace('_', '.').replace('_', '')) || false;
+  return parseFloat(("" + (/CPU.*OS ([0-9_]{1,5})|(CPU like).*AppleWebKit.*Mobile/i.exec(ua) || [0, ""])[1]).replace("undefined", "3_2").replace("_", ".").replace("_", "")) || false;
 } ////////////////////////////////////////
 // Browser Ditector
 ////////////////////////////////////////
 
 
 $(document).ready(function () {
-  var isOpera = !!window.opr && !!opr.addons || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-  var isFirefox = typeof InstallTrigger !== 'undefined';
+  var isOpera = !!window.opr && !!opr.addons || !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0;
+  var isFirefox = typeof InstallTrigger !== "undefined";
 
   var isSafari = /constructor/i.test(window.HTMLElement) || function (p) {
     return p.toString() === "[object SafariRemoteNotification]";
-  }(!window['safari'] || safari.pushNotification);
+  }(!window["safari"] || safari.pushNotification);
 
   var isIE =
   /*@cc_on!@*/
@@ -54841,14 +54843,14 @@ $(document).ready(function () {
   var isEdge = !isIE && !!window.StyleMedia;
   var isChrome = !!window.chrome && !!window.chrome.webstore;
   var isBlink = (isChrome || isOpera) && !!window.CSS;
-  if (isOpera) $('html').addClass("opera");
-  if (is_OSX) $('html').addClass("osx");
-  if (isFirefox) $('html').addClass("firefox");
-  if (isSafari) $('html').addClass("safari");
-  if (isIE) $('html').addClass("ie");
-  if (isEdge) $('html').addClass("edge");
-  if (isChrome) $('html').addClass("chrome");
-  if (isBlink) $('html').addClass("blink");
+  if (isOpera) $("html").addClass("opera");
+  if (is_OSX) $("html").addClass("osx");
+  if (isFirefox) $("html").addClass("firefox");
+  if (isSafari) $("html").addClass("safari");
+  if (isIE) $("html").addClass("ie");
+  if (isEdge) $("html").addClass("edge");
+  if (isChrome) $("html").addClass("chrome");
+  if (isBlink) $("html").addClass("blink");
 });
 
 aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
@@ -54857,22 +54859,22 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 
  // external js: isotope.pkgd.js, imagesloaded.pkgd.js
 
-var grid = document.querySelector('.grid');
+var grid = document.querySelector(".grid");
 var iso;
 
-if (grid != null) {
+if (grid !== null) {
   imagesloaded__WEBPACK_IMPORTED_MODULE_2___default()(grid, function () {
     // init Isotope after all images have loaded
     iso = new isotope_layout__WEBPACK_IMPORTED_MODULE_1___default.a(grid, {
-      itemSelector: '.grid-item',
+      itemSelector: ".grid-item",
       percentPosition: true,
       masonry: {
-        columnWidth: '.grid-sizer'
+        columnWidth: ".grid-sizer"
       }
     });
   });
 } else {
-  grid = '';
+  grid = "";
 }
 
 /***/ }),

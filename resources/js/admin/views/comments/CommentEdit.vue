@@ -26,10 +26,12 @@
                 </div>
             </div>
         </div>
-        <button @click="submitForm" class="btn btn-primary btn-sm mb-4">
+        <button @click="submitForm" class="btn btn-outline-info mb-4">
+            <i class="fa fa-edit"></i>
             update comment
         </button>
-        <button @click="deleteComment" class="btn btn-danger btn-sm mb-4">
+        <button @click="deleteComment" class="btn btn-outline-danger mb-4">
+            <i class="fas fa-trash-alt"></i>
             delete comment
         </button>
     </div>
@@ -77,7 +79,6 @@ export default {
                     this.$router.push(`/admin/comments/${id}`);
                 })
                 .catch(errors => {
-                    
                     this.errors = errors.response.data.errors;
                     this.$toastr.e(errors.message);
                 });

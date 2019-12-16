@@ -51,19 +51,22 @@ class CommentController extends Controller
         $request->validate([
             'text' => 'required',
             'post_id' => 'required|integer|exists:posts,id',
-        ]);
+		],
+		[
+            'text.required' => 'Text comment is required ',
+		]);
 
         $comment =  auth()->user()->comments()->create(
-            
+
               $request->all()
 
         );
 
               return redirect('/posts/' . $comment->post->slug . '#comments')
               ->with('flash', 'Your comment was successfully added');
-          
-        
-        
+
+
+
     }
 
     /**
@@ -98,7 +101,7 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment)
     {
         $this->authorize('update', $comment);
-  
+
             $comment->text = $request->text;
             $comment->save();
     }

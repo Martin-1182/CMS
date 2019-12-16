@@ -1,10 +1,8 @@
-
+@if (Auth::user()->hasVerifiedEmail())
 @include('errors')
+	<form action="/comments" method="POST" class="add-comment-form">
 
-
-<form action="/comments" method="POST" class="add-comment-form"> 
-
-    <!-- CSRF Token 
+    <!-- CSRF Token
     :: https://laravel.com/docs/5.8/csrf -->
         @csrf
 
@@ -17,3 +15,9 @@
     <input type="hidden" name="post_id" value="{{ $post->id }}">
 
 </form>
+@else
+<div>
+	<span class="alert alert-warning p-2">
+Please verify your email address.</span>
+</div>
+@endif

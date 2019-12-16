@@ -3,8 +3,16 @@
 
     <comment :comment-data="{{ $comment }}" inline-template>
 
-        <article class="comment-article">
-            <div class="card">
+        <article class="comment-article mt-3">
+			@guest
+				<span class="alert alert-warning">Only registered and logged in users can comment</span>
+			@endguest
+
+
+
+
+
+            <div class="card mt-3">
                 <div class="card-body comment-card">
 
                 <div class="row" id="comments">
@@ -15,9 +23,9 @@
                             </time>
                         </div>
 
-                        <div class="col-md-8"><p 
+                        <div class="col-md-8"><p
                             ref="input"
-                            :contenteditable="editing" 
+                            :contenteditable="editing"
                             @keydown.enter="updateComment"
                             @keydown.esc="resetText"
                             @blur="resetText"
@@ -30,7 +38,7 @@
                             @can('update', $comment)
 
                                 <a class="float-right text-white font-1 pl-1 badge badge-danger ml-2" @click="deleteComment"> <i class="far fa-trash-alt"></i> Delete</a>
-                                            
+
                                 <a class="float-right text-white font-1 pl-1 badge badge-info" @click="startEditing"> <i class="far fa-edit"></i> Edit</a>
 
                             @endcan
@@ -42,5 +50,3 @@
         </article>
 
     </comment>
-
-   

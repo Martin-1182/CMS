@@ -53,10 +53,16 @@
         <div class="form-group">
             <label for="x" class="badge badge-info">YOUR TEXT ↓ </label>
 
-            <input id="x" value="" type="hidden" name="text" v-model="text" />
+            <input
+                id="x"
+                value=""
+                type="hidden"
+                name="content"
+                v-model="text"
+            />
             <trix-editor
                 input="x"
-                class="form-control"
+                class="form-control trix-content"
                 :class="{ 'is-invalid': errors.text }"
             >
             </trix-editor>
@@ -158,7 +164,8 @@ textarea {
 }
 
 trix-editor {
-    min-height: 20em;
+    min-height: 22em;
+    overflow: scroll;
 }
 input[type="file"] {
     border: none;

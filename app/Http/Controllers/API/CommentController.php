@@ -50,7 +50,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-          	$comment = Comment::findOrFile($id);
+          	$comment = Comment::find($id);
 			$this->validate($request,[
 				'text' => 'required',
 			]);

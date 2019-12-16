@@ -20,16 +20,15 @@
 
 <script>
 export default {
-	props: ["resource", "id", "css"],
-	data() {
-		return {
-		}
-	},
+    props: ["resource", "id", "css"],
+    data() {
+        return {};
+    },
     computed: {
-		class() {
-			return this.class
-		}
-	},
+        class() {
+            return this.class;
+        }
+    },
     methods: {
         deleteResource() {
             if (
@@ -38,13 +37,9 @@ export default {
                 axios
                     .delete(`/api/${this.resource}s/${this.id}`)
                     .then(response => {
-
-						this.$router.push(`/admin/${this.resource}s`)
-						this.$toastr.s(`${this.resource} successfully deleted`)
-					}
-
-
-                    );
+                        this.$router.push(`/admin/${this.resource}s`);
+                        this.$toastr.s(`${this.resource} deleted`);
+                    });
             }
         }
     }
@@ -53,6 +48,6 @@ export default {
 
 <style lang="scss" scoped>
 .displayNone {
-	display: none;
+    display: none;
 }
 </style>
