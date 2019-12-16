@@ -76,7 +76,7 @@ class AlbumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $album = Album::find($id);
+        $album = Album::findOrFail($id);
         $this->validate($request,[
             'title' => 'required|string|max:191',
             'text' => 'required',
@@ -121,7 +121,7 @@ class AlbumController extends Controller
             @unlink($albumImage);
         }
         return response()->json([
-          'message' => 'album with photos is deleted'
+          'message' => 'album is deleted'
         ], 200);
     }
 }
