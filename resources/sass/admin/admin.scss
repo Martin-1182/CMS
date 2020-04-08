@@ -1,102 +1,106 @@
 @import "variables";
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
 // font awesome
 //@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 //@import "~@fortawesome/fontawesome-free/scss/solid.scss";
 //@import "~@fortawesome/fontawesome-free/scss/brands.scss";
-@import "~@fortawesome/@fortawesome/css/fa-svg-with-js";
-
-
-
-
-
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .content {
-  padding: 2em 3em;
+    padding: 2em 3em;
 }
-.main-navigation {
-  background-color: #292929;
-  display: flex;
-  flex-direction: column;
-  padding: 2em 3em;
-  margin-bottom: 0;
-  list-style: none;
-  min-height: 100vh;
-  border-right: 3px solid #737373;
-  overflow: hidden;
-   @media #{$sm_mobile} {
-    min-height: 30vh;
-  }
-}
-.nav-item a {
-  color: whitesmoke;
-  display: block;
-}
-.navbar-brand {
-  margin-bottom: 1em;
-  a {
-    padding: 0;
-  }
 
-  img {
-    width: 112px;
-  }
+.main-navigation {
+    background-color: #292929;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 3em;
+    margin-bottom: 0;
+    list-style: none;
+    min-height: 100vh;
+    border-right: 3px solid #737373;
+    overflow: hidden;
+    @media #{$sm_mobile} {
+        min-height: 30vh;
+    }
 }
+
+.nav-item a {
+    color: whitesmoke;
+    display: block;
+}
+
+.navbar-brand {
+    margin-bottom: 1em;
+    a {
+        padding: 0;
+    }
+    img {
+        width: 112px;
+    }
+}
+
 h5.heading {
-  color: #737373;
-  font-size: x-small;
-  margin-top: 3em;
-  letter-spacing: 2px;
+    color: #737373;
+    font-size: x-small;
+    margin-top: 3em;
+    letter-spacing: 2px;
 }
+
 .the-dark {
-  background-color: #292929!important;
-  background: #292929!important;
-  color: whitesmoke;
+    background-color: #292929!important;
+    background: #292929!important;
+    color: whitesmoke;
 }
+
 .the-dark th {
-  font-weight: 400;
-  color: whitesmoke;
+    font-weight: 400;
+    color: whitesmoke;
 }
+
 .nowrap {
-  white-space: nowrap;
+    white-space: nowrap;
 }
+
 .nowrap {
-  a{
-    color: #292929;
-  }
-  a:hover {
-    text-decoration: none;
-    text-shadow: #292929;
-    border-bottom: 2px solid #292929;
-  }
+    a {
+        color: #292929;
+    }
+    a:hover {
+        text-decoration: none;
+        text-shadow: #292929;
+        border-bottom: 2px solid #292929;
+    }
 }
+
 
 /* clear fix */
+
 .grid:after {
-  content: '';
-  display: block;
-  clear: both;
+    content: '';
+    display: block;
+    clear: both;
 }
+
 
 /* ---- .grid-item ---- */
 
 .grid-sizer,
 .grid-item {
-  width: 20%;
+    width: 20%;
 }
 
 .grid-item {
-  float: left;
+    float: left;
 }
 
 .grid-item img {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
