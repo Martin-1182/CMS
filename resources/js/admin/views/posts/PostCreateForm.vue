@@ -145,7 +145,6 @@ export default {
         post(post) {
             this.title = post.title;
             this.text = post.text;
-            this.slug = post.slug;
             this.image = post.image;
 
             let trix = document.querySelector("trix-editor");
