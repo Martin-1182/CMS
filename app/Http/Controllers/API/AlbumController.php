@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Album;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+
 use Illuminate\Http\Request;
 
 class AlbumController extends Controller
