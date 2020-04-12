@@ -52,6 +52,7 @@ export default {
 }
 .edit-links {
     position: absolute;
-    right: 0;
+    right: 1px;
+    bottom:3px;
 }
 </style>

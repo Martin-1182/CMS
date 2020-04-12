@@ -29,23 +29,23 @@ class ImageController extends Controller
 
         $this->validate($request, [
             'images' => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:3048'
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:30600'
         ]);
-        
-        $albumId = $request->get('album_id');   
-        
+
+        $albumId = $request->get('album_id');
+
         if($request->hasFile('images')) {
             foreach($request->file('images') as $image) {
                 $filename = strtolower ( trim ( $image->getClientOriginalName() ));
                 $name = time().rand(100,999).$filename;
                 $destinationPath = 'img/gallery-img/';
                 $image->move($destinationPath, $name);
-        
+
                 $image = new Image([
                     'image' => $name,
                     'album_id' => $albumId
                 ]);
-        
+
                 $image->save();
             }
         }

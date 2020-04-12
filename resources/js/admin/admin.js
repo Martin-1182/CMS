@@ -4,6 +4,7 @@ import Toastr from "vue-toastr";
 Vue.use(Toastr);
 import router from "./router";
 require("../../../node_modules/sweetalert2/dist/sweetalert2.all");
+require("../../../node_modules/@fortawesome/fontawesome-free/js/all");
 require("./main-admin.js");
 
 // import

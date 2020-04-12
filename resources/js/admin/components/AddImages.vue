@@ -24,7 +24,7 @@
             </div>
 
             <div v-show="!images.length">
-                <i class="fa fa-cloud-upload fa-4x"></i>
+                <i class="fas fa-cloud-upload-alt fa-4x"></i>
                 <p>Drag your images here</p>
                 <div>OR</div>
                 <div class="file-input">

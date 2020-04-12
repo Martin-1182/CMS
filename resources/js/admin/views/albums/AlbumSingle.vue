@@ -2,7 +2,7 @@
     <div class="container">
         <h1 class="title pt-4">
             <router-link :to="'/admin/albums/'"
-                ><i class="fas fa-arrow-alt-square-left"></i
+                ><i class="far fa-images"></i
             ></router-link>
             <small>Album|</small>
             {{ album.title }}

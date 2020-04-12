@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Album;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class AlbumController extends Controller
 {
@@ -29,7 +30,7 @@ class AlbumController extends Controller
 		$this->validate($request,
 		[
             'title' => 'required|string|max:80',
-			'image' => 'required|max:10240',
+			'image' => 'required',
             'text' => 'required|string|max:200',
 		],
 		[
@@ -38,7 +39,7 @@ class AlbumController extends Controller
 			'text.max' => 'Onli 200 characters allowed',
 			'text.required' => 'Text is required',
 			'image.required' => 'Images is required',
-			'image.max' => 'Max 10MB filesize is allowed ',
+
 
 		]
        );
@@ -46,7 +47,7 @@ class AlbumController extends Controller
         if($request->image){
 
             $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
-            \Image::make($request->image)->resize(300, 200)->save(public_path('img/album-img/').$name);
+            \Image::make($request->image)->resize(420, 340)->save(public_path('img/album-img/').$name);
             $request->merge(['image' => $name]);
         }
             $album = Album::create($request->all());

@@ -4,9 +4,6 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-     RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
-
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
