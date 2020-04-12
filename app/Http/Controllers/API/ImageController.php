@@ -29,7 +29,7 @@ class ImageController extends Controller
 
         $this->validate($request, [
             'images' => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:30600'
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:3600'
         ]);
 
         $albumId = $request->get('album_id');
