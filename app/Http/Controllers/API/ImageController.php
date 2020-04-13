@@ -49,6 +49,7 @@ class ImageController extends Controller
                 $image->save();
             }
         }
+
         return response()->json([
         'message' => 'All images uplaoded successfully',
         ], 201);
