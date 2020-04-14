@@ -133,7 +133,7 @@ export default {
                 return;
             }
 
-            axios.post("/api/images/", formData).then(response => {
+            axios.post("/api/images", formData).then(response => {
                 this.$toastr.s("All images uplaoded successfully");
                 this.images = [];
                 this.files = [];
