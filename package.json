@@ -30,7 +30,7 @@
         "imagesloaded": "^4.1.4",
         "isotope-layout": "^3.0.6",
         "lightbox2": "^2.11.1",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "serialize-javascript": "^2.1.2",
         "sweetalert2": "^9.10.11",
         "trix": "^1.2.3",
